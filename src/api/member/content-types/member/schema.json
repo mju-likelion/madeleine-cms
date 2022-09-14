@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "members",
+  "info": {
+    "singularName": "member",
+    "pluralName": "members",
+    "displayName": "Member",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "manager",
+        "member"
+      ],
+      "required": true
+    },
+    "team": {
+      "type": "enumeration",
+      "enum": [
+        "captain",
+        "operation",
+        "education",
+        "public-relation"
+      ]
+    },
+    "part": {
+      "type": "enumeration",
+      "enum": [
+        "web",
+        "server",
+        "design"
+      ]
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "inversedBy": "participants"
+    }
+  }
+}
